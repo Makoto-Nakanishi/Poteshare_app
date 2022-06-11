@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
       # 新規登録時にnameの取得を許可
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
       # 情報更新時にnameの取得を許可
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :content, :image])
     end
-
 end

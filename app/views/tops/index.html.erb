@@ -19,6 +19,7 @@
   <h4> メールアドレス： <%= current_user.email %> </h4>
   <h4><%= current_user.name %> さんがログインしています </h4>
 
+  <%= link_to "プロフィール編集", edit_user_registration_path %> 
   <%= link_to "ルーム登録", new_event_path %> 
   <%= link_to "ルーム一覧", events_path %> 
 
