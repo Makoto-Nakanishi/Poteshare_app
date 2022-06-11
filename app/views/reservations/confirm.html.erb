@@ -3,20 +3,20 @@
     <table>    
           <tr>
             <th>開始日</th>
-            <td><%= @reservation.started_at %></td>
+            <td><%= @event.started_at %></td>
           </tr>
    
           <tr>
             <th>終了日</th>
-            <td><%= @reservation.ended_at %></td>
+            <td><%= @event.ended_at %></td>
           </tr>
 
           <tr>
             <th>人数</th>
-            <td><%= @reservation.people_number %></td>
+            <td><%= @event.people_number %></td>
           </tr>
 
-    <%= form_with model: @reservation, method: :post, url: event_reservations_path(@reservation) do |form| %>
+    <%= form_with model: @event, method: :post, url: event_reservations_path(@event) do |form| %>
             <%= form.hidden_field :started_at %>
             <%= form.hidden_field :ended_at %>
             <%= form.hidden_field :people_number %>

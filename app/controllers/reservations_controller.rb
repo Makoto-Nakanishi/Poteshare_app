@@ -1,12 +1,12 @@
 class ReservationsController < ApplicationController
     def confirm
-        @reservation = Reservation.find(params[:user_id])
-      end
+        @reservation = Reservation.find(params[:id])
+    end
 
     def create
 
         event = Event.find(params[:event_id])
-        @reservation = current_user.reservations.build(reservation_params)
+        @reservation = current_user.reservations.new(reservation_params)
         @reservation.event = event
 
         if @reservation.save
