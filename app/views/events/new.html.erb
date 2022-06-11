@@ -1,0 +1,41 @@
+<h3>新規投稿</h3>
+
+<%= form_with model: @event do |f| %>
+
+<div class="field">
+<%= f.label :room_name, "ルーム名" %><br />
+<%= f.text_field :room_name, autofocus: true %>
+</div>
+
+<div class="field">
+<%= f.label :content %><br />
+<%= f.text_field :content %>
+</div>
+
+<div class="field">
+<%= f.label :price %><br />
+<%= f.text_field :price %>
+</div>
+
+<div class="field">
+<%= f.label :address %><br />
+<%= f.text_field :address %>
+</div>
+
+<div class="field">
+<%= f.label :room_img %><br />
+<%= f.text_field :room_img %>
+</div>
+
+<%= f.hidden_field :user_id, value: current_user.id %>
+
+<div class="actions">
+<%= f.submit "登録" %>
+</div>
+<% end %>
+
+<div>
+  <ul>
+    <li><%= link_to "ユーザー情報一覧に戻る", root_path %></li>
+  </ul>
+</div>

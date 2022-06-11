@@ -1,0 +1,52 @@
+<h3>イベント詳細</h3>
+ 
+<%= form_with model: @reservation, method: :post, url: reservation_confirm_path  do |f| %>
+    <table>
+        <tr>
+            <th>ルーム画像</th>
+            <td><%= @event.room_img %></td>
+        </tr>
+    
+          <tr>
+            <th><%= f.label :started_at ,"開始日" %></th>
+            <td><%= f.date_field :started_at %></td>
+          </tr>
+   
+          <tr>
+            <th><%= f.label :ended_at ,"終了日" %></th>
+            <td><%= f.date_field :ended_at %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :people_number ,"人数" %></th>
+            <td><%= f.number_field :people_number %></td>
+          </tr>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+
+          <%= f.submit "予約する" %>      
+        
+        <tr>
+            <th>名前</th>
+            <td><%= @event.room_name %></td>
+        </tr>
+        <tr>
+            <th>内容</th>
+            <td><%= @event.content %></td>
+        </tr>
+        <tr>
+            <th>料金</th>
+            <td><%= @event.price %></td>
+        </tr>
+        <tr>
+            <th>住所</th>
+            <td><%= @event.address %></td>
+        </tr>
+    
+    </table>
+    <% end %>
+      
+    <div>
+        <ul>
+            <li><%= link_to "トップに戻る", root_path %></li>
+        </ul>
+    </div>
