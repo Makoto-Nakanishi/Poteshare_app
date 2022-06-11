@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
     def confirm
-        @reservation = Reservation.new
-    end
+        @reservation = Reservation.find(params[:user_id])
+      end
 
     def create
 
@@ -18,6 +18,6 @@ class ReservationsController < ApplicationController
 
     private
       def reservation_params
-        params.require(:reservation).permit(:started_at, :ended_at, :people_number)
+        params.require(:reservation).permit(:started_at, :ended_at, :people_number, :user_id)
       end
 end
