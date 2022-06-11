@@ -30,10 +30,16 @@ class EventsController < ApplicationController
   def destroy
   end
 
+  def search
+    @events = Event.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
+
 private
 
   def event_params
-    params.require(:event).permit(:room_name, :content, :price, :address, :room_img, :id, :user_id)
+    params.require(:event).permit(:room_name, :content, :price, :address, :image, :id, :user_id)
   end
 
 end

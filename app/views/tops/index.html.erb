@@ -1,8 +1,17 @@
-<h1>ログインアプリ</h1>
+<h1>Poteshare</h1>
 
 <% if flash[:notice] %>
 <p class="notice"><%= flash[:notice] %></p>
 <% end %>
+
+<div class="search-form">
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :address_keyword, value: @keyword %>
+    <%= f.submit "検索" %>
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
 
 <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
   <!-- ユーザーがログインしていた時の処理 -->

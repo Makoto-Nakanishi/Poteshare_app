@@ -23,9 +23,8 @@
 </div>
 
 <div class="field">
-<%= f.label :room_img %><br />
-<%= f.text_field :room_img %>
-</div>
+<%= f.label :image %><br />
+<%= f.file_field :image %></div>
 
 <%= f.hidden_field :user_id, value: current_user.id %>
 
