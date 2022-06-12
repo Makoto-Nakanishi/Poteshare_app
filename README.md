@@ -23,6 +23,22 @@ Things you may want to cover:
 
 * ...
 
+          <td><%= @event.room_name %></td>
+          <td><%= @event.room_name %></td>
+          <td><%= @event.content %></td>
+          <td><%= @event.price %></td>
+
+
+
+
+
+
+
+
+
+
+
+
 <%= form_with model: @reservation, url: event_reservation_path(@reservation) do |f| %>
     <% end %>
   <div class="field">

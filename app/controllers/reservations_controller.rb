@@ -1,5 +1,10 @@
 class ReservationsController < ApplicationController
-	def new
+	def index
+        @events = Event.all
+		@reservations = Reservation.all
+	end
+
+    def new
 		@reservation = Reservation.new
 	end
 
@@ -19,10 +24,10 @@ class ReservationsController < ApplicationController
     private
 
       def confirmation_params
-        params.permit(:started_at, :ended_at, :people_number, :price, :user_id)
+        params.permit(:started_at, :ended_at, :people_number, :price, :user_id, :event_id)
       end
 
       def reservation_params
-        params.require(:reservation).permit(:started_at, :ended_at, :people_number, :price, :user_id)
+        params.require(:reservation).permit(:started_at, :ended_at, :people_number, :price, :user_id, :event_id)
       end
 end
