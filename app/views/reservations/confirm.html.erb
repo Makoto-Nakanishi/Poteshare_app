@@ -1,30 +1,27 @@
 <h3>予約内容確認</h3>
- 
-    <table>    
-          <tr>
-            <th>開始日</th>
-            <td><%= @event.started_at %></td>
-          </tr>
-   
-          <tr>
-            <th>終了日</th>
-            <td><%= @event.ended_at %></td>
-          </tr>
 
-          <tr>
-            <th>人数</th>
-            <td><%= @event.people_number %></td>
-          </tr>
+<dl>
+	<dt>料金/1日</dt>
+	<dd><%= @reservation.price %></dd>
+	<dt>開始日</dt>
+	<dd><%= @reservation.started_at.strftime("%Y年%m月%d日") %></dd>
+	<dt>終了日</dt>
+	<dd><%= @reservation.ended_at.strftime("%Y年%m月%d日") %></dd>
+	<dt>人数</dt>
+	<dd><%= @reservation.people_number %></dd>
+</dl>
 
-    <%= form_with model: @event, method: :post, url: event_reservations_path(@event) do |form| %>
-            <%= form.hidden_field :started_at %>
-            <%= form.hidden_field :ended_at %>
-            <%= form.hidden_field :people_number %>
-            <%= form.submit '送信する' %>
-    <% end %>
+<%= form_for @reservation, method: :post, url: reservations_path(@reservation) do |form| %>
+    <%= form.hidden_field :price %>
+	<%= form.hidden_field :started_at %>
+	<%= form.hidden_field :ended_at %>
+	<%= form.hidden_field :people_number %>
+    <%= form.submit '送信する' %>
+<% end %>
 
+    <p>上記内容でよろしければ予約確定ボタンを押してください</p>
+    
+    
     <div>
-        <ul>
-            <li><%= link_to "トップに戻る", root_path %></li>
-        </ul>
+      <%= link_to "トップに戻る", root_path %></li>
     </div>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :events do
-    resources :reservations
+    collection do
+      resources :reservations
+    end
   end
   post 'reservations/confirm' # 確認画面
   post 'reservations/back' # 確認画面から「入力画面に戻る」をクリックしたとき

@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      flash[:notice] = "新規投稿をしました"
+      flash[:notice] = "新しいルームの投稿をしました"
       redirect_to root_path
     else
       render "new"
