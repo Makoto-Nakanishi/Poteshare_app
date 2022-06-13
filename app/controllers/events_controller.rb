@@ -31,9 +31,11 @@ class EventsController < ApplicationController
   end
 
   def search
-    @events = Event.search(params[:keyword])
-    @keyword = params[:keyword]
-    render "index"
+    if params[:address].present?
+      @events = Event.where('address LIKE ?', "%#{params[:address]}%")
+    else params[:freeword].present?
+      @events = Event.where("%#{params[:freeword]}%")
+    end
   end
 
 private

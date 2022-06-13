@@ -1,7 +1,11 @@
 <h1>予約一覧</h1>
 
-<thead>
+<div class="reservations">
+
+<table div class="table">
+<thead div class="thead">
     <tr>
+        <th>ルーム画像</th>
         <th>ルーム名</th>
         <th>ルーム紹介</th>
         <th>合計料金</th>
@@ -14,8 +18,8 @@
 <tbody>
 
 <% @reservations.each do |reservation| %>
-    <table>
      <tr>
+       <td><%= image_tag reservation.event.image if reservation.event.image.attached? %></td>   
        <td><%= reservation.event.room_name %></td>
        <td><%= reservation.event.content %></td>
        <td><%= reservation.price %></td>
@@ -23,7 +27,9 @@
        <td><%= reservation.ended_at.strftime("%y年%m月%d日") %></td>
        <td><%= reservation.created_at %></td>
      </tr>
-    <table>
 <% end %>
 
 </tbody>
+</table>
+
+</div>

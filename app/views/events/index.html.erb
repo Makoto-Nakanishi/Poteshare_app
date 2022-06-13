@@ -1,31 +1,33 @@
-<h1>Events#index</h1>
+<h1>ルーム一覧</h1>
 
-<thead>
+<div class="events">
+
+<table div class="table">
+<thead div class="thead">
     <tr>
-        <th>id</th>
+        <th>ルーム画像</th>
         <th>ルーム名</th>
         <th>内容</th>
         <th>料金</th>
         <th>住所</th>
-        <th>ルーム画像</th>
         <th>参照</th>
     </tr>
 </thead>
 
 <tbody>
       <% @events.each do |event| %>
-       <table>
         <tr>
-          <td><%= event.id %></td>
+          <td><%= image_tag event.image if event.image.attached? %></td>
           <td><%= event.room_name %></td>
           <td><%= event.content %></td>
           <td><%= event.price %></td>
           <td><%= event.address %></td>
-          <td><%= event.room_img %></td>
           <td>
             <%= link_to "参照", event %>
           </td>
         </tr>
-       <table>
       <% end %>
 </tbody>
+</table>
+
+</div>

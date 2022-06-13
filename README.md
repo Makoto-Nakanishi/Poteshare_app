@@ -23,6 +23,12 @@ Things you may want to cover:
 
 * ...
 
+
+    @events = Event.search(params[:keyword])
+    @keyword = params[:keyword]
+
+
+
           <td><%= @event.room_name %></td>
           <td><%= @event.room_name %></td>
           <td><%= @event.content %></td>
