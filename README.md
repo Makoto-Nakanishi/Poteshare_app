@@ -28,6 +28,25 @@ Things you may want to cover:
           <td><%= @event.content %></td>
           <td><%= @event.price %></td>
 
+          <% @reservations.each do |reservation| %>
+       <table>
+        <tr>
+          <td><%= reservation.started_at %></td>
+          <td><%= reservation.ended_at %></td>
+        </tr>
+       <table>
+<% end %>
+
+<% @reservations.each do |reservation| %>
+       <table>
+        <tr>
+          <td><%= reservation.started_at %></td>
+          <td><%= reservation.ended_at %></td>
+        </tr>
+       <table>
+<% end %>
+
+
 
 
 
