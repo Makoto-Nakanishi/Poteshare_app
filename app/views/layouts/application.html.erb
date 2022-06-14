@@ -10,34 +10,50 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  <header>
-  <%= link_to "Poteshare", root_path, class: "link" %>
+<body>
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <%= link_to "Poteshare", root_path, class: "h1 text-light mr-3" %>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="キーワード" aria-label="Search">
+          <button class="btn btn-light mr-3" type="submit">検索</button>
+        </form>
+    
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="エリア" aria-label="Search">
+          <button class="btn btn-light mr-5" type="submit">検索</button>
+        </form>
 
-<div class ="search-box">
-  <div class="search-free-box">
-    <div class="input-group">
-      <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワード"></input>
-      <span class="input-group-btn input-group-append">
-        <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i>検索</submit>
-      </span>
-    </div>
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle h5 text-light" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class: "navbar-brand">
+          <%= current_user.name %>
+          </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "プロフィール編集", edit_user_registration_path, class: "dropdown-item" %> 
+          <%= link_to "ルーム登録", new_event_path, class: "dropdown-item" %>
+          <%= link_to "ルーム一覧", events_path, class: "dropdown-item" %> 
+          <%= link_to "予約一覧", reservations_path, class: "dropdown-item" %> 
+        </div>
+        </li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "h5 text-light ml-5" %> 
+        <% else %>
+        <div class="login_registration">
+          <%= link_to "ログイン", new_user_session_path, class: 'post h5 text-light ml-5' %> 
+          <%= link_to "新規登録", new_user_registration_path, class: 'post h5 text-light ml-5' %> 
+        </div>
+      <% end %>
+    </ul>
   </div>
-  
-  <div class="search-area-box">
-    <div class="input-group">
-      <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="エリア"></input>
-      <span class="input-group-btn input-group-append">
-      <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i>検索</submit>
-        </span>
-    </div>
-  </div>
-</div>
+</nav>
+
 </header>
 
 <%= yield %>
 
-<footer>
+<footer class="bottom">
     <div class="copyright">
       <p>© 2022 POTEPAN.INC.</p>
     </div>

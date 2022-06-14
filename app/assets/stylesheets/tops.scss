@@ -1,3 +1,28 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.top-page {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.jumbotron { 
+    background:url(img_bg.jpg) center no-repeat; background-size: cover;
+}
+
+div.container {
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+div.image_container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.area-box {
+    display:flex;
+}

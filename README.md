@@ -23,6 +23,80 @@ Things you may want to cover:
 
 * ...
 
+    <div class="card-deck" style="width:18rem">
+      <div class="card">
+        <% image_tag "img_tokyo.jpg", size: '100x200', class: "card-img-top" %>
+      </div>
+   
+      <div class="card">
+        <img class="card-img-top" src="../images/img_sapporo.jpg" alt="Card image cap">
+      </div>
+
+      <div class="card">
+        <img class="card-img-top" src="../images/img_osaka.jpg" alt="Card image cap">
+      </div>
+
+      <div class="card">
+        <img class="card-img-top" src="../images/img_kyoto.jpg" alt="Card image cap">
+      </div>
+    </div>
+  </div>
+
+
+<div class="area-box">
+<div class="container">
+
+<div class="card-group">
+  <div class="card">
+    <img src="" class="card-img-top" alt="東京">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+
+
+
+
+
+<div class="card" style="width: 18rem;">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" 
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+              <title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/>
+              <text fill="#dee2e6" dy=".3em" x="50%" y="50%">東京</text></svg>
+  <div class="card-body">
+    <h5 class="card-title">東京</h5>
+    <a href="#" class="btn btn-primary">部屋を探す</a>
+  </div>
+</div>
+
+
+
+  <div class="panel-area row m-5">
+    <h1 class="section-title">おすすめのエリア</h1>
+    <div class="panel-item col-lg-3 col-6">
+     <span>東京</span>
+     <%= image_tag 'img_tokyo', size: '100x200' %>
+    </div>
+    <div class="panel-item col-lg-3 col-6">
+    <span>札幌</span>
+      <%= image_tag 'img_sapporo', size: '100x200' %>
+    </div>
+    <div class="panel-item col-lg-3 col-6">
+    <span>大阪</span>
+      <%= image_tag 'img_osaka', size: '100x200' %>
+    </div>
+    <div class="panel-item col-lg-3 col-6">
+    <span>京都</span>
+     <%= image_tag 'img_kyoto', size: '100x200' %>
+    </div>
+  </div>
+  </div>
+
+
 
     @events = Event.search(params[:keyword])
     @keyword = params[:keyword]

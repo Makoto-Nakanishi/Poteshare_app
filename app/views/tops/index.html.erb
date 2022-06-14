@@ -1,23 +1,29 @@
 
-<% if flash[:notice] %>
-<p class="notice"><%= flash[:notice] %></p>
-<% end %>
+<div class="top-page">
+  <% if user_signed_in? %> 
+    <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+  <% end %>
 
-<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-  <!-- ユーザーがログインしていた時の処理 -->
+  <div class="jumbotron">
+  <div class="container">
+    <h3>Potepan Shareでまだ体験したことのない旅をしよう</h3>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="エリア" aria-label="Search">
+      <button class="btn btn-primary" type="submit">探す</button>
+    </form>
+  </div>
+  </div>
 
-  <h4> メールアドレス： <%= current_user.email %> </h4>
-  <h4><%= current_user.name %> さんがログインしています </h4>
+  <div class="container border border-0">
+    <h3>おすすめのエリア</h3>
+      <div class="image_container">
+        <%= image_tag 'img_tokyo.jpg', size: '250x350' %>
+        <%= image_tag 'img_sapporo.jpg', size: '250x350' %>
+        <%= image_tag 'img_osaka.jpg', size: '250x350' %>
+        <%= image_tag 'img_kyoto.jpg', size: '250x350' %>
+      </div>
+  </div>
 
-  <%= link_to "プロフィール編集", edit_user_registration_path %> 
-  <%= link_to "ルーム登録", new_event_path %> 
-  <%= link_to "ルーム一覧", events_path %> 
-  <%= link_to "予約一覧", reservations_path %> 
-
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
-<% else %>
-  <!-- ユーザーがログインしていなかった時の処理 -->
-  <h2> 現在ログインしていません </h2>
-  <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
-  <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
-<% end %>
+</div>

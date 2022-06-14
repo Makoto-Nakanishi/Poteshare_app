@@ -27,22 +27,8 @@
   text-align: left;
 }
 
-.search-box {
-  display: flex;
-  width: 30%;
-}
-
-.search-free-box {
-  margin-left: 30px;
-}
-
-.search-area-box {
-  margin-left: 30px;
-}
-
  header {
    font-size: 40px;
-   background-color: black;
    padding-bottom: 20px; 
  }
 
@@ -50,7 +36,8 @@
     color: white; 
  }
 
- .container {
+div.container {
+  padding-top: 50px;
   padding-bottom: 50px;
   border: solid 1px #bbb;
   background-color: white;
@@ -59,7 +46,9 @@
 
  footer{
     position: absolute;
+    margin-top: 10px;
     padding-top: 10px;
+    padding-bottom: 10px;
     bottom: 0;
     width: 100%;
     text-align: center;
