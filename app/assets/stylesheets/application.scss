@@ -15,7 +15,7 @@
  */
 
  html{
-   height: 100%;
+   min-height: 100%;
    position: relative;
  }
 
@@ -27,14 +27,35 @@
   text-align: left;
 }
 
+.search-box {
+  display: flex;
+  width: 30%;
+}
+
+.search-free-box {
+  margin-left: 30px;
+}
+
+.search-area-box {
+  margin-left: 30px;
+}
+
  header {
    font-size: 40px;
-   background-color: black; 
+   background-color: black;
+   padding-bottom: 20px; 
  }
 
  .link {
     color: white; 
  }
+
+ .container {
+  padding-bottom: 50px;
+  border: solid 1px #bbb;
+  background-color: white;
+  text-align: left;
+}
 
  footer{
     position: absolute;
@@ -45,3 +66,5 @@
     color: white;
     background-color: black;
 }
+
+

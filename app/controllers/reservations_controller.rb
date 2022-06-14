@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.new
 	end
 
-    def confirm
+  def confirm
 		@reservation = Reservation.new(confirmation_params)
 	end
 

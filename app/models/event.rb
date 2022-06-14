@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-    has_many :reservations
+    has_many :reservations, dependent: :destroy
     belongs_to :user
 
       # 1対１(単数枚画像投稿)で関連付けるという宣言

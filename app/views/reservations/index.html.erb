@@ -12,6 +12,7 @@
         <th>開始日</th>
         <th>終了日</th>
         <th>予約確定日時</th>
+        <th>ルーム詳細</th>
     </tr>
 </thead>
 
@@ -26,6 +27,10 @@
        <td><%= reservation.started_at.strftime("%y年%m月%d日") %></td>
        <td><%= reservation.ended_at.strftime("%y年%m月%d日") %></td>
        <td><%= reservation.created_at %></td>
+       <td>
+        <%= link_to "ルーム詳細", reservation.event %>
+       </td>
+
      </tr>
 <% end %>
 

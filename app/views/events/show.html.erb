@@ -1,37 +1,48 @@
-<h3>ルーム詳細</h3>
+<div class="room_reservation">
+<div class="container">
+
+<div class ="room_title">
+    <h4>ルーム詳細</h4>
+</div>
  
 <%= form_with model: @reservation, method: :post, url: reservations_confirm_path  do |f| %>
-    <table>
+    <table div class="table">
         <tr>
             <th>ルーム画像</th>
             <td><%= image_tag @event.image if @event.image.attached? %></td>
         </tr>
     
         <tr>
-            <th><%= f.label :started_at ,"開始日" %></th>
-            <td><%= f.date_field :started_at %></td>
+            <div class="form-group">
+                <th><%= f.label :started_at ,"開始日" %><span class="badge badge-danger">必須</span></th>
+                <td><%= f.date_field :started_at, class: "form-control" %></td>
+            </div>
         </tr>
    
         <tr>
-            <th><%= f.label :ended_at ,"終了日" %></th>
-            <td><%= f.date_field :ended_at %></td>
+            <div class="form-group">
+                <th><%= f.label :ended_at ,"終了日" %><span class="badge badge-danger">必須</span></th>
+                <td><%= f.date_field :ended_at, class: "form-control" %></td>
+            </div>
         </tr>
 
         <tr>
-            <th><%= f.label :people_number ,"人数" %></th>
-            <td><%= f.number_field :people_number %></td>
+            <div class="form-group">
+                <th><%= f.label :people_number ,"人数" %><span class="badge badge-danger">必須</span></th>
+                <td><%= f.number_field :people_number, class: "form-control" %></td>
+            </div>
         </tr>
 
         <tr>
-            <th>名前</th>
+            <th>ルーム名</th>
             <td><%= @event.room_name %></td>
         </tr>
         <tr>
-            <th>内容</th>
+            <th>ルーム紹介</th>
             <td><%= @event.content %></td>
         </tr>
         <tr>
-            <th>料金</th>
+            <th>1日当たりの料金</th>
             <td><%= @event.price %></td>
         </tr>
         <tr>
@@ -47,9 +58,5 @@
     <%= f.submit "予約する" %>      
 
     <% end %>
-      
-    <div>
-        <ul>
-            <li><%= link_to "トップページに戻る", root_path %></li>
-        </ul>
+</div>      
     </div>
