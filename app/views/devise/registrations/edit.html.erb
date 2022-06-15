@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :image, "プロフィール画像" %><br />
-    <%= image_tag @user.image.variant(resize: "400x400") %><br />
+    <%= image_tag @user.image.variant(resize: "300x200^", gravity: "center", crop: "100x100+0+0") %><br />
     <%= f.file_field :image %><br />
   </div>
   
@@ -29,7 +29,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -43,7 +43,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 

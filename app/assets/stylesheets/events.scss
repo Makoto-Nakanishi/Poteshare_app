@@ -2,27 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.events {
-    width: 100%;
-    padding: 30px 60px;
-    border: 2px;
-    border-color: black;
-}
-
 .td {
     width: 100%;
+}
+
+.events {
+    margin-bottom: 200px;
 }
 
 .room_reservation {
     width: 100%;
     text-align: center;
     background-color: #bbb;
+    margin-bottom: 50px;
 }
 
 .room_registration {
     width: 100%;
-    margin-top:50px;
-    margin-bottom: 50px;
     text-align: center;
     background-color: #bbb;
 }
@@ -36,9 +32,4 @@
     border: solid 1px #bbb;
     background-color: white;
     text-align: left;
-}
-
-.events {
-    margin-top: 50px;
-    margin-bottom: 50px;
 }

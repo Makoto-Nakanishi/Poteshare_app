@@ -20,13 +20,13 @@
 
 <% @reservations.each do |reservation| %>
      <tr>
-       <td><%= image_tag reservation.event.image if reservation.event.image.attached? %></td>   
+       <td><%= image_tag reservation.event.image.variant(resize: "400") if reservation.event.image.attached? %></td>   
        <td><%= reservation.event.room_name %></td>
        <td><%= reservation.event.content %></td>
        <td><%= reservation.price %></td>
-       <td><%= reservation.started_at.strftime("%y年%m月%d日") %></td>
-       <td><%= reservation.ended_at.strftime("%y年%m月%d日") %></td>
-       <td><%= reservation.created_at %></td>
+       <td><%= l reservation.started_at %></td>
+       <td><%= l reservation.ended_at %></td>
+       <td><%= l reservation.created_at %></td>
        <td>
         <%= link_to "ルーム詳細", reservation.event %>
        </td>

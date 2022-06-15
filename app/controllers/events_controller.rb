@@ -13,6 +13,7 @@ class EventsController < ApplicationController
       flash[:notice] = "新しいルームを登録をしました"
       redirect_to root_path
     else
+      flash[:notice] = "入力項目に誤りがあります"
       render "new"
     end
   end

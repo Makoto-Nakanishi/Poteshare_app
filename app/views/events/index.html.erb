@@ -17,7 +17,7 @@
 <tbody>
       <% @events.each do |event| %>
         <tr>
-          <td><%= image_tag event.image if event.image.attached? %></td>
+          <td><%= image_tag event.image.variant(resize: "400") if event.image.attached? %></td>
           <td><%= event.room_name %></td>
           <td><%= event.content %></td>
           <td><%= event.price %></td>

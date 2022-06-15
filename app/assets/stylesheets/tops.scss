@@ -3,7 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .jumbotron { 
-    background:url(img_bg.jpg) center no-repeat; background-size: cover;
+    background:url(bg_img.jpg) center no-repeat; background-size: cover;
+}
+
+.search-box {
+    width: 50px;
+    height: 50px;
 }
 
 div.container {

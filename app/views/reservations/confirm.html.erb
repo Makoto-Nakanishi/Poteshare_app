@@ -1,28 +1,34 @@
+
 <div class="room_confirmation">
-<div class="container">
+ <div class="container">
 
-<div class ="room_title">
-	<h3>予約内容確認</h3>
-</div>
+	<div class ="room_title">
+		<h3>予約内容確認</h3>
+	</div>
 
-<table div class="table">
-	<tr>
-		<th>料金/1日</th>
-		<td><%= @reservation.price %></td>
-	</tr>
-	<tr>
-		<th>開始日</th>
-		<td><%= @reservation.started_at.strftime("%Y年%m月%d日") %></td>
-	</tr>
-	<tr>
-		<th>終了日</th>
-		<td><%= @reservation.ended_at.strftime("%Y年%m月%d日") %></td>
-	</tr>
-	<tr>
-		<th>人数</th>
-		<td><%= @reservation.people_number %></td>
-	</tr>
-</table>
+	<table div class="table">
+		<tr>
+			<th>料金/1日</th>
+			<td><%= @reservation.price %></td>
+		</tr>
+		<tr>
+			<th>開始日</th>
+			<td><%= l @reservation.started_at %></td>
+		</tr>
+		<tr>
+			<th>終了日</th>
+			<td><%= l @reservation.ended_at %></td>
+		</tr>
+		<tr>
+			<th>人数</th>
+			<td><%= @reservation.people_number %></td>
+		</tr>
+		<tr>
+			<th>合計金額</th>
+			<td><%= @total %></td>
+ 		</tr>
+
+	</table>
 
 <%= form_for @reservation, method: :post, url: reservations_path(@reservation) do |form| %>
     <%= form.hidden_field :event_id %>
@@ -33,6 +39,5 @@
     <%= form.submit '予約を確定する', class:"btn btn-primary" %>
 <% end %>
 
-</div>
-
+ </div>
 </div>
