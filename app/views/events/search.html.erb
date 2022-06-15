@@ -1,14 +1,17 @@
 <h1>Room search</h1>
-<table>
-  </tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.room_name %></td>
-        <td><%= event.content %></td>
-        <td><%= event.price %></td>
-        <td><%= event.address %></td>
-        <td><%= event.image %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class="container">
+  <table class="table">
+    <tbody>
+      <%= @events.each do |event| %>
+        <tr>
+            <td><%= event.room_name %></td>
+            <td><%= event.content %></td>
+            <td><%= event.price %></td>
+            <td><%= event.address %></td>
+            <td><%= event.image %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

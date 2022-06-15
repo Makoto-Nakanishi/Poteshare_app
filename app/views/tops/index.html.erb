@@ -1,10 +1,13 @@
   <div class="jumbotron">
   <div class="container">
     <h3>Potepan Shareでまだ体験したことのない旅をしよう</h3>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="エリア" aria-label="Search">
-      <button class="btn btn-primary" type="submit">探す</button>
-    </form>
+    <div class="search-form">
+    <%= form_with url: searchs_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, value: @keyword %>
+      <%= f.submit "検索" %>
+    <% end %>
+  </div>
+
   </div>
   </div>
 

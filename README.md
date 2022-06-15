@@ -23,6 +23,15 @@ Things you may want to cover:
 
 * ...
 
+  def search
+    if params[:address].present?
+      @events = Event.where('address LIKE ?', "%#{params[:address]}%")
+    else params[:freeword].present?
+      @events = Event.where("%#{params[:freeword]}%")
+    end
+  end
+
+
 <div class="top-page">
   <% if user_signed_in? %> 
     <% if flash[:notice] %>

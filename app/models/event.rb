@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   has_one_attached :image
 
   def self.search(keyword)
-    where(["room_name like?", "%#{keyword}%"])
+    where(["room_name like? OR content like?", "%#{keyword}%", "%#{keyword}%"])
   end
 
 end
