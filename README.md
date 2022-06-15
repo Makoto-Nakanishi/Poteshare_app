@@ -23,6 +23,14 @@ Things you may want to cover:
 
 * ...
 
+<div class="top-page">
+  <% if user_signed_in? %> 
+    <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+  <% end %>
+
+
     <div class="card-deck" style="width:18rem">
       <div class="card">
         <% image_tag "img_tokyo.jpg", size: '100x200', class: "card-img-top" %>
