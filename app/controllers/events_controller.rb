@@ -1,4 +1,14 @@
 class EventsController < ApplicationController
+  before_action :search
+
+  def search
+    if params[:room_name].present?
+      @events = Event.where('room_name LIKE ?', "%#{params[:room_name]}%")
+    else
+      @users = User.none
+    end
+  end
+
   def index
     @events = Event.all
   end
@@ -29,12 +39,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-  end
-
-  def search
-    @events = Event.search(params[:keyword])
-    @keyword = params[:keyword]
-    redirect_to search_path
   end
 
 private

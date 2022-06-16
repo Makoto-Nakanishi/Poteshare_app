@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :reservations
     end
     collection do
-      resources :searchs
+      get 'search'
     end
   end
   post 'reservations/confirm' 

@@ -1,5 +1,6 @@
 <h2>プロフィール</h2>
 
+<div = class"container>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -51,5 +52,7 @@
     <%= f.submit "Update" %>
   </div>
 <% end %>
+</div>
+
 
 

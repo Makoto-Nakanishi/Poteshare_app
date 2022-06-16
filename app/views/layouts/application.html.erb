@@ -18,14 +18,14 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <div class="search-form mr-3">
-          <%= form_with url: searchs_path, method: :get, local: true do |f| %>
-            <%= f.text_field :keyword, value: @keyword %>
-            <%= f.submit "検索" %>
-          <% end %>
-        </div>    
+        <%= form_with url: search_events_path, method: :get, local: true do |f| %>
+          <%= f.text_field :room_name %>
+          <%= f.submit "検索" %>
+        <% end %>
+        </div>
 
         <div class="search-form">
-          <%= form_with url: searchs_path, method: :get, local: true do |f| %>
+          <%= form_with url: search_events_path, method: :get, local: true do |f| %>
             <%= f.text_field :keyword, value: @keyword %>
             <%= f.submit "検索" %>
           <% end %>
