@@ -1,0 +1,39 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.td {
+    width: 100%;
+}
+
+.events {
+    margin-bottom: 200px;
+}
+
+.room_reservation {
+    width: 100%;
+    text-align: center;
+    background-color: #bbb;
+    margin-bottom: 50px;
+}
+
+.room_registration {
+    width: 100%;
+    text-align: center;
+    background-color: #bbb;
+}
+
+.search_result {
+    margin-bottom: 50px;
+  }
+  
+.room_title {
+    padding: 20px 20px;
+}
+
+.container {
+    padding-top: 50px;
+    border: solid 1px #bbb;
+    background-color: white;
+    text-align: left;
+}

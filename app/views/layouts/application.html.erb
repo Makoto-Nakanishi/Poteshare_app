@@ -1,16 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PoteshareApp</title>
+    <title>Poteshare</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= flash[:alert] %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <%= link_to "Poteshare", root_path, class: "h1 text-light mr-3" %>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <div class="search-form mr-3">
+        <%= form_with url: search_events_path, method: :get, local: true do |f| %>
+          <%= f.text_field :address, placeholder: "エリア" %>
+          <%= f.submit "検索" %>
+        <% end %>
+        </div>
+
+        <%= form_with url: search_events_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword, placeholder: "キーワード" %>
+          <%= f.submit "検索" %>
+        <% end %>
+        </div>
+
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle h5 text-light" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class: "navbar-brand">
+          <%= current_user.name %>
+          </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "プロフィール編集", edit_user_registration_path, class: "dropdown-item" %> 
+          <%= link_to "ルーム登録", new_event_path, class: "dropdown-item" %>
+          <%= link_to "ルーム一覧", events_path, class: "dropdown-item" %> 
+          <%= link_to "予約一覧", reservations_path, class: "dropdown-item" %> 
+        </div>
+        </li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "h5 text-light ml-5" %> 
+        <% else %>
+        <div class="login_registration">
+          <%= link_to "ログイン", new_user_session_path, class: 'post h5 text-light ml-5' %> 
+          <%= link_to "新規登録", new_user_registration_path, class: 'post h5 text-light ml-5' %> 
+        </div>
+      <% end %>
+    </ul>
+    </div>
+</nav>
+
+</header>
+
+<%= yield %>
+
+<footer class="bottom">
+    <div class="copyright">
+      <p>© 2022 POTEPAN.INC.</p>
+    </div>
+</footer>
+
+</body>
+
 </html>

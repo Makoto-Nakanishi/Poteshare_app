@@ -1,0 +1,62 @@
+<div class="room_reservation">
+<div class="container">
+
+<div class ="room_title">
+    <h4>ルーム詳細</h4>
+</div>
+ 
+<%= form_with model: @reservation, method: :post, url: reservations_confirm_path  do |f| %>
+    <table div class="table">
+        <tr>
+            <th>ルーム画像</th>
+            <td><%= image_tag @event.image.variant(resize: "400") if @event.image.attached? %></td>
+        </tr>
+    
+        <tr>
+            <div class="form-group">
+                <th><%= f.label :started_at ,"開始日" %><span class="badge badge-danger">必須</span></th>
+                <td><%= f.date_field :started_at, class: "form-control" %></td>
+            </div>
+        </tr>
+   
+        <tr>
+            <div class="form-group">
+                <th><%= f.label :ended_at ,"終了日" %><span class="badge badge-danger">必須</span></th>
+                <td><%= f.date_field :ended_at, class: "form-control" %></td>
+            </div>
+        </tr>
+
+        <tr>
+            <div class="form-group">
+                <th><%= f.label :people_number ,"人数" %><span class="badge badge-danger">必須</span></th>
+                <td><%= f.number_field :people_number, class: "form-control" %></td>
+            </div>
+        </tr>
+
+        <tr>
+            <th>ルーム名</th>
+            <td><%= @event.room_name %></td>
+        </tr>
+        <tr>
+            <th>ルーム紹介</th>
+            <td><%= @event.content %></td>
+        </tr>
+        <tr>
+            <th>1日当たりの料金</th>
+            <td><%= @event.price %></td>
+        </tr>
+        <tr>
+            <th>住所</th>
+            <td><%= @event.address %></td>
+        </tr>
+    </table>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+    <%= f.hidden_field :price, value: @event.price %>
+
+    <%= f.submit "予約する" %>      
+
+    <% end %>
+</div>      
+    </div>

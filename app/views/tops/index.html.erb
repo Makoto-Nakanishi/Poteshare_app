@@ -1,0 +1,36 @@
+<div class="jumbotron">
+  <div class="container">
+    <h3>Potepan Shareでまだ体験したことのない旅をしよう</h3>
+    <div class="search-form">
+    <%= form_with url: search_events_path, method: :get, local: true do |f| %>
+      <%= f.text_field :address, placeholder: "エリア" %>
+      <%= f.submit "探す" %>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+  <div class="container border border-0">
+    <h3>おすすめのエリア</h3>
+      <div class="image_container">
+        <div class="Tokyo">
+          <%= link_to "http://[::1]:3000/events/search?address=%E6%9D%B1%E4%BA%AC&commit=%E6%8E%A2%E3%81%99" do %> <%= image_tag 'img_tokyo.jpg', size: '250x350' %><% end %>
+            <p>東京</p>
+        </div>
+        <div class="Sapporo">
+          <%= link_to "http://[::1]:3000/events/search?address=%E6%9C%AD%E5%B9%8C&commit=%E6%8E%A2%E3%81%99" do %> <%= image_tag 'img_sapporo.jpg', size: '250x350' %><% end %>
+          <p>札幌</p>
+        </div>
+        <div class="Osaka">
+          <%= link_to "http://[::1]:3000/events/search?address=%E5%A4%A7%E9%98%AA&commit=%E6%8E%A2%E3%81%99" do %> <%= image_tag 'img_osaka.jpg', size: '250x350' %><% end %>
+          <p>大阪</p>
+        </div>
+        <div class="Kyoto">
+          <%= link_to "http://[::1]:3000/events/search?address=%E4%BA%AC%E9%83%BD&commit=%E6%8E%A2%E3%81%99" do %> <%= image_tag 'img_kyoto.jpg', size: '250x350' %><% end %>
+          <p>京都</p>
+        </div>
+      </div>
+  </div>
+  </div>
+
+</div>
