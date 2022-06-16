@@ -6,7 +6,7 @@
 
   <div class="field">
     <%= f.label :image, "プロフィール画像" %><br />
-    <%= image_tag @user.image.variant(resize: "300x200^", gravity: "center", crop: "100x100+0+0") %><br />
+    <%= image_tag @user.image.variant(resize: "300x200^", gravity: "center", crop: "100x100+0+0") if @user.image.attached?%><br />
     <%= f.file_field :image %><br />
   </div>
   

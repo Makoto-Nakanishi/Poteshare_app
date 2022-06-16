@@ -1,9 +1,10 @@
 class ReservationsController < ApplicationController
 	def index
 		@reservations = Reservation.all
+
 	end
 
-    def new
+  def new
 		@reservation = Reservation.new
 	end
 
@@ -17,14 +18,12 @@ class ReservationsController < ApplicationController
  
     @start_date = @start_date.to_date
     @end_date = @end_date.to_date
-    @days = (@end_date - @start_date).to_i
+    @day = (@end_date - @start_date).to_i
 
     @people_number = @people_number.to_i
     @price = @price.to_i
 
-    @total = @days * @people_number * @price
-
-    binding.pry
+    @total = @day * @people_number * @price
 	end
 
     def create
@@ -32,8 +31,14 @@ class ReservationsController < ApplicationController
         if @reservation.save
             redirect_to root_path, alert: "ルームを予約しました"
         else
-            render "index", alert: "ルームの予約に失敗しました"
+            redirect_to root_path, alert: "ルームの予約に失敗しました"
         end
+    end
+
+    def destroy
+      @reservation = Reservation.find(params[:id])
+      @reservation.destroy
+      redirect_to reservations_path(current_user.id) , notice: "予約を取り消しました。"
     end
 
     private
@@ -43,6 +48,6 @@ class ReservationsController < ApplicationController
       end
 
       def reservation_params
-        params.require(:reservation).permit(:started_at, :ended_at, :people_number, :price, :user_id, :event_id)
+        params.require(:reservation).permit(:started_at, :ended_at, :people_number, :price, :user_id, :event_id, :total_price)
       end
 end

@@ -1,6 +1,8 @@
 
 <div class="room_confirmation">
- <div class="container">
+
+<div class="container">
+<%= flash[:alert] %>
 
 	<div class ="room_title">
 		<h3>予約内容確認</h3>
@@ -27,7 +29,6 @@
 			<th>合計金額</th>
 			<td><%= @total %></td>
  		</tr>
-
 	</table>
 
 <%= form_for @reservation, method: :post, url: reservations_path(@reservation) do |form| %>
@@ -36,8 +37,9 @@
 	<%= form.hidden_field :started_at %>
 	<%= form.hidden_field :ended_at %>
 	<%= form.hidden_field :people_number %>
+	<%= form.hidden_field :total_price, value: @total %>
     <%= form.submit '予約を確定する', class:"btn btn-primary" %>
 <% end %>
 
- </div>
+  </div>
 </div>

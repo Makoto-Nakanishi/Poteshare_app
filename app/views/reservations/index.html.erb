@@ -1,40 +1,37 @@
 <div class="reservations">
 <h1>予約一覧</h1>
 
-
 <table div class="table">
-<thead div class="thead">
-    <tr>
-        <th>ルーム画像</th>
-        <th>ルーム名</th>
-        <th>ルーム紹介</th>
-        <th>合計料金</th>
-        <th>開始日</th>
-        <th>終了日</th>
-        <th>予約確定日時</th>
-        <th>ルーム詳細</th>
-    </tr>
-</thead>
+    <thead div class="thead">
+        <tr>
+            <th>ルーム画像</th>
+            <th>ルーム名</th>
+            <th>ルーム紹介</th>
+            <th>合計料金</th>
+            <th>開始日</th>
+            <th>終了日</th>
+            <th>予約確定日時</th>
+            <th>ルーム詳細</th>
+        </tr>
+    </thead>
 
-<tbody>
-
-<% @reservations.each do |reservation| %>
-     <tr>
-       <td><%= image_tag reservation.event.image.variant(resize: "400") if reservation.event.image.attached? %></td>   
-       <td><%= reservation.event.room_name %></td>
-       <td><%= reservation.event.content %></td>
-       <td><%= reservation.price %></td>
-       <td><%= l reservation.started_at %></td>
-       <td><%= l reservation.ended_at %></td>
-       <td><%= l reservation.created_at %></td>
-       <td>
-        <%= link_to "ルーム詳細", reservation.event %>
-       </td>
-
-     </tr>
-<% end %>
-
-</tbody>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <% if reservation.user_id == current_user.id %>
+          <tr>
+            <td><%= image_tag reservation.event.image.variant(resize: "400") if reservation.event.image.attached? %></td>   
+            <td><%= reservation.event.room_name %></td>
+            <td><%= reservation.event.content %></td>
+            <td><%= reservation.total_price %></td>
+            <td><%= l reservation.started_at %></td>
+            <td><%= l reservation.ended_at %></td>
+            <td><%= l reservation.created_at %></td>
+            <td><%= link_to "削除", reservation , method: :delete, data: { confirm: "本当に削除しますか？" } %></td></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
 </table>
 
 </div>
+

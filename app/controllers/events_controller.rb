@@ -10,6 +10,8 @@ class EventsController < ApplicationController
     else
       @events = Event.none
     end
+
+    @count = @events.count
   end
 
   def index
