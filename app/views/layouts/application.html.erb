@@ -19,16 +19,15 @@
       <ul class="navbar-nav">
         <div class="search-form mr-3">
         <%= form_with url: search_events_path, method: :get, local: true do |f| %>
-          <%= f.text_field :room_name %>
+          <%= f.text_field :address, placeholder: "エリア" %>
           <%= f.submit "検索" %>
         <% end %>
         </div>
 
-        <div class="search-form">
-          <%= form_with url: search_events_path, method: :get, local: true do |f| %>
-            <%= f.text_field :keyword, value: @keyword %>
-            <%= f.submit "検索" %>
-          <% end %>
+        <%= form_with url: search_events_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword, placeholder: "キーワード" %>
+          <%= f.submit "検索" %>
+        <% end %>
         </div>
 
       <% if user_signed_in? %>

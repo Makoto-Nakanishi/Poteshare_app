@@ -2,10 +2,13 @@ class EventsController < ApplicationController
   before_action :search
 
   def search
-    if params[:room_name].present?
-      @events = Event.where('room_name LIKE ?', "%#{params[:room_name]}%")
+
+    if params[:address].present?
+      @events = Event.where('address LIKE ?', "%#{params[:address]}%")
+    elsif params[:keyword].present?
+      @events = Event.where('room_name LIKE ? OR price LIKE ? OR content LIKE ? OR address LIKE ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
     else
-      @users = User.none
+      @events = Event.none
     end
   end
 
